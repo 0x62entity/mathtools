@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { ToolCard } from "./components/ToolCard";
 
 export default function Home() {
