@@ -25,9 +25,9 @@ export default function Converter() {
   const units = [
     "nm", "um", "mm", "cm", "m", "km", // metric distance values
     "th", "in", "hh", "ft", "ch", "yd", "fur", "mi", "lea", // stupid distance values
-    "nL", "μL", "mL", "cL", "L", "kL", // metric volume values
+    "nL", "uL", "mL", "cL", "L", "kL", // metric volume values
     "fl oz", "gi", "pt", "qt", "gal", // stupid volume values
-    "ng", "μg", "mg", "cg", "g", "kg", "t", // metric weight values
+    "ng", "ug", "mg", "cg", "g", "kg", "t", // metric weight values
     "gr", "dr", "oz", "lb", "st", "qtr", "cwt", "ton", // stupid volume values
   ]
   return (
