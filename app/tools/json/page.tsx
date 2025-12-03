@@ -1,5 +1,5 @@
 "use client";
-import JSON from "@/app/components/JSON";
+import Format from "@/app/components/Format";
 import Link from "next/link";
 
 export default function JSONPage() {
@@ -10,7 +10,7 @@ export default function JSONPage() {
         <h1 className="font-bold text-2xl m-2">JSON Formatter</h1>
       </header>
       <div>
-        <JSON/>
+        <Format/>
       </div>
     </div>
   )
