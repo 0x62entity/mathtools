@@ -29,20 +29,20 @@ export default function Converter() {
   ]
   return (
     <div>
-        <h3 className="text-lg font-semibold">Convert from</h3>
-        <input type="number" className="bg-zinc-900 m-1 p-2 rounded-md" onChange={(e) => {setFrom(Number.parseInt(e.target.value));}}/>
-        <select className="bg-zinc-900 m-1 p-2 rounded-md" onChange={(e) => {setFromUnit(e.target.value);}}>
-          {units.map(u => (
-            <option key={u}>{u}</option>
-          ))}
-        </select>
-        <h3 className="text-lg font-semibold">Convert to</h3>
-        <input type="number" readOnly className="bg-zinc-900 m-1 p-2 rounded-md" value={to}/>
-        <select className="bg-zinc-900 m-1 p-2 rounded-md" onChange={(e) => {setToUnit(e.target.value)}}>
-          {units.map(u => (
-            <option key={u}>{u}</option>
-          ))}
-        </select>
-      </div>
+      <h3 className="text-lg font-semibold">Convert from</h3>
+      <input type="number" className="bg-zinc-900 m-1 p-2 rounded-md" onChange={(e) => {setFrom(Number.parseInt(e.target.value));}}/>
+      <select className="bg-zinc-900 m-1 p-2 rounded-md" onChange={(e) => {setFromUnit(e.target.value);}}>
+        {units.map(u => (
+          <option key={u}>{u}</option>
+        ))}
+      </select>
+      <h3 className="text-lg font-semibold">Convert to</h3>
+      <input type="number" readOnly className="bg-zinc-900 m-1 p-2 rounded-md" value={to}/>
+      <select className="bg-zinc-900 m-1 p-2 rounded-md" onChange={(e) => {setToUnit(e.target.value)}}>
+        {units.map(u => (
+          <option key={u}>{u}</option>
+        ))}
+      </select>
+    </div>
   )
 }
