@@ -5,8 +5,8 @@ import { useState } from "react";
 export default function Text() {
   const [from, setFrom] = useState<string>("");
   const [to, setTo] = useState<string>("");
-  const [from1, setFrom1] = useState<string>("");
-  const [to1, setTo1] = useState<string>("");
+  const [from1, setFrom1] = useState<string>("binary");
+  const [to1, setTo1] = useState<string>("binary");
 
   function convert() {
     switch (from1) {
