@@ -47,12 +47,15 @@ export default function Text() {
       case "binary":
         setFrom(from.replaceAll(" ", ""));
         if (to1 == "text") {
-
+          setTo(from.split(' ')
+            .map(a => String.fromCharCode(parseInt(a, 2)))
+            .join(''));
         } else if (to1 == "hexadecimal") {
-
+          setTo(parseInt(from, 2).toString(16));
         } else {
           setTo(from);
         }
+        break;
     }
   }
 
