@@ -7,29 +7,63 @@ export default function Roman() {
   const [output, setOutput] = useState<string>("");
 
   useEffect(() => {
-    const num = Number.parseInt(input);
+    let num = Number.parseInt(input);
     if (Number.isNaN(num)) {
       const map: { [key: string]: number } = {
-        I: 1, V: 5, X: 10, L: 50,
-        C: 100, D: 500, M: 1000
+        I: 1,
+        V: 5,
+        X: 10,
+        L: 50,
+        C: 100,
+        D: 500,
+        M: 1000
       };
-      let sum = 0;
+
+      let ret = 0;
       let prev = 0;
+
       for (let i = input.length - 1; i >= 0; i--) {
         const curr = map[input[i].toUpperCase()];
         if (!curr) {
           setOutput("Error");
         }
         if (curr < prev) {
-          sum -= curr;
+          ret -= curr;
         } else {
-          sum += curr;
+          ret += curr;
         }
         prev = curr;
       }
-      setOutput(sum.toString());
+      setOutput(ret.toString());
     } else {
+      const map: [number, string][] = [
+        [1000, "M"],
+        [900, "CM"],
+        [500, "D"],
+        [400, "CD"],
+        [100, "C"],
+        [90, "XC"],
+        [50, "L"],
+        [40, "XL"],
+        [10, "X"],
+        [9, "IX"],
+        [5, "V"],
+        [4, "IV"],
+        [1, "I"],
+      ];
+      if (num <= 0) {
+        setOutput("Error");
+        return;
+      }
 
+      let ret = "";
+      for (const [key, value] of map) {
+        while (num >= key) {
+          ret += value;
+          num -= key;
+        }
+      }
+      setOutput(ret);
     }
   }, [input])
 
