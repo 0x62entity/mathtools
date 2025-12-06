@@ -4,12 +4,14 @@ import { useState, useRef, useEffect } from "react";
 
 export default function Timer() {
   const [remain, setRemain] = useState<string>("");
+  const [elapsed, setElapsed] = useState<number>(0);
   const [hours, setHours] = useState<number>(0);
   const [mins, setMins] = useState<number>(0);
   const [secs, setSecs] = useState<number>(0);
   const [ms, setMs] = useState<number>(0);
 
   const timerRef = useRef<number | null>(null);
+  const stopRef = useRef<number | null>(null);
 
   function convert(ms: number): string {
     const hours = Math.floor(ms / 3600000);
@@ -48,22 +50,24 @@ export default function Timer() {
     }, 1);
   }
 
+  function stopwatch() {
+    const now = Date.now();
+    stopRef.current = window.setInterval(() => {
+      setElapsed(Date.now() - now);
+    })
+  }
+
   function stop() {
     if (timerRef.current !== null) {
       window.clearInterval(timerRef.current);
       timerRef.current = null;
     }
+    if (stopRef.current !== null) {
+      window.clearInterval(stopRef.current);
+      stopRef.current = null;
+    }
     setRemain(convert(0));
   }
-
-  useEffect(() => {
-    return () => {
-      if (timerRef.current !== null) {
-        window.clearInterval(timerRef.current);
-        timerRef.current = null;
-      }
-    };
-  }, []);
 
   return (
     <div className="flex flex-col">
@@ -85,6 +89,11 @@ export default function Timer() {
         <button className="bg-red-600 m-1 p-2 rounded-md" onClick={stop}>Stop</button>
       </div>
       <h3 className="text-xl font-semibold">Stopwatch</h3>
+      <label>{convert(elapsed)}</label>
+      <div>
+        <button className="bg-blue-600 m-1 p-2 rounded-md" onClick={stopwatch}>Start</button>
+        <button className="bg-red-600 m-1 p-2 rounded-md" onClick={stop}>Stop</button>
+      </div>
     </div>
   )
 }
