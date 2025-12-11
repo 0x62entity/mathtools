@@ -21,13 +21,25 @@ export default function Games() {
       <div className="flex flex-row w-screen items-start w-screen">
         <div className="h-max bg-zinc-900 w-[10%] rounded-md">
           {games.map(game => (
-            <div key={game} className="hover:bg-zinc-800 rounded-md p-2 m-1" onClick={() => { setTitle(game.split(':')[0]); setDesc(game.split(':')[1]) }}>
+            <div
+              key={game}
+              className="hover:bg-zinc-800 rounded-md p-2 m-1"
+              onClick={() => {
+                setTitle(game.split(':')[0]);
+                setDesc(game.split(':')[1]);
+                document.getElementById("game-container")?.focus();
+              }}
+            >
               <span className="text-md font-semibold">{game.split(':')[0]}</span>
             </div>
           ))}
         </div>
         <div className="w-screen">
-          <iframe className="h-192 w-[100%]" src={`/0x67616d6573/${title.toLowerCase()}`}></iframe>
+          <iframe
+            className="h-192 w-[100%]"
+            src={`/0x67616d6573/${title.toLowerCase()}`}
+            id="game-container"
+          />
         </div>
       </div>
     </div>
