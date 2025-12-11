@@ -1,4 +1,5 @@
 # MathTools
-A website that contains various tools for math and programming but also hosts games (this is intended to keep it running as long as possible on school wifi networks)
+A website that contains various tools for math and programming and not games trust
 
-To access the games section look at how to do it in app/components/Counter.tsx (how to access should be pretty obvious in the code)
+To access 0x67616d6573, use the search bar on main page, and enter search term "potato",
+you will then be redirected to a very nice page with gmaes on it!!!
