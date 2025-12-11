@@ -6,8 +6,6 @@ export default function Counter() {
   function change(e: ChangeEvent) {
     const text = (e.target as HTMLTextAreaElement).value || "";
 
-    if (text == "potato are tasty") location.href = "/0x67616d6573"
-
     setChars(text.length.toString());
     setWords(text.split(" ").length.toString());
   }
