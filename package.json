@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@microlink/react-json-view": "^1.27.0",
+    "bowser": "^2.13.1",
     "json-formatter-js": "^2.5.23",
     "mathjs": "^15.1.0",
     "next": "^16.0.7",
