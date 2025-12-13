@@ -24,6 +24,7 @@ export default function Home() {
         <ToolCard title="Stopwatch/Timer" desc="Stopwatch and Timer" url="/tools/timer"/>
         <ToolCard title="Roman Numeral Converter" desc="Converts Roman numerals" url="/tools/roman"/>
         <ToolCard title="Number Base Converter" desc="Convert numbers between bases" url="/tools/base"/>
+        <ToolCard title="File Converter" desc="Convert files between formats" url="/tools/files"/>
       </div>
     </div>
   );
