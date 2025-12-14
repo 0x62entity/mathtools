@@ -1,6 +1,5 @@
 "use client";
 
-import { Titillium_Web } from "next/font/google";
 import { useEffect, useState } from "react";
 
 function Cell({ score }: { score: number }) {
@@ -39,6 +38,60 @@ export default function G2048() {
     ];
     setBoard(tile(tile(board)));
   }
+
+  function move(row: number[]) {
+    let ret: number[] = [];
+    row = row.filter(x => x !== 0);
+    let i = 0;
+
+    while (i < row.length) {
+      if (i + 1 < row.length && row[i] == row[i + 1]) {
+        ret.push(row[i] * 2);
+        i += 2;
+      } else {
+        ret.push(row[i]);
+        i += 1;
+      }
+    }
+
+    while(ret.length < 4) ret.push(0);
+    return ret;
+  }
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      let next: number[][] | null = null;
+      const transpose = (b: number[][]) => b[0].map((_, i) => b.map(r => r[i]));
+
+      switch (e.key) {
+        case "ArrowUp": {
+          next = transpose(transpose(board).map(row => move(row)));
+          break;
+        }
+        case "ArrowDown": {
+          next = transpose(transpose(board).map(row => move([...row].reverse()).reverse()));
+          break;
+        }
+        case "ArrowLeft": {
+          next = board.map(row => move(row));
+          break;
+        }
+        case "ArrowRight": {
+          next = board.map(row => move([...row].reverse()).reverse());
+          break;
+        }
+        default:
+          break;
+      }
+
+      if (next && !next.every((row, i) => row.every((v, j) => v === board[i][j]))) {
+        setBoard(tile(next));
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  });
 
   useEffect(() => {
     reset();
