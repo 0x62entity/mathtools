@@ -118,8 +118,6 @@ export default function Tetris() {
 
   useEffect(() => {
     function handleKey(e: KeyboardEvent) {
-      if (done || paused) return;
-
       if (e.key === "p" || e.key === "P") {
         setPaused(p => !p);
         return;
@@ -172,7 +170,7 @@ export default function Tetris() {
         )}
       </div>
       <div className="flex">
-        <button onClick={reset} className="p-2 m-1 bg-zinc-700 hover:bg-zinc-600 rounded-mde">
+        <button onClick={reset} className="p-2 m-1 bg-zinc-700 hover:bg-zinc-600 rounded-md">
           Reset
         </button>
         <button onClick={() => setPaused(prev => !prev)} className="p-2 m-1 bg-zinc-700 hover:bg-zinc-600 rounded-md">
