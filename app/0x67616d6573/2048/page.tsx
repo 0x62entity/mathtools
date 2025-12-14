@@ -3,8 +3,18 @@
 import { useEffect, useState } from "react";
 
 function Cell({ score }: { score: number }) {
+  const colors: Record<number, string> = {
+    2: "bg-zinc-800",
+    4: "bg-gray-800",
+    8: "bg-yellow-900",
+    16: "bg-amber-900",
+    32: "bg-orange-900",
+    64: "bg-orange-700",
+    128: "bg-red-900"
+  }
+
   return (
-    <div className="w-24 h-24 bg-zinc-800 m-1 flex items-center justify-center rounded-md">
+    <div className={`w-24 h-24 ${colors[score] || (score? "bg-yellow-700": "bg-zinc-800")} m-1 flex items-center justify-center rounded-md`}>
       {score ? score : ""}
     </div>
   );
