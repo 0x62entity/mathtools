@@ -70,6 +70,29 @@ export default function G2048() {
     return ret;
   }
 
+  function canMove(board: number[][]): boolean {
+    // check for empty cells
+    for (let i = 0; i < 4; i++) {
+      for (let j = 0; j < 4; j++) {
+        if (board[i][j] === 0) return true;
+      }
+    }
+
+    // check for adjacent equal cells
+    for (let i = 0; i < 4; i++) {
+      for (let j = 0; j < 3; j++) {
+        if (board[i][j] === board[i][j + 1]) return true;
+      }
+    }
+    for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < 4; j++) {
+        if (board[i][j] === board[i + 1][j]) return true;
+      }
+    }
+
+    return false;
+  }
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       let next: number[][] | null = null;
@@ -97,7 +120,15 @@ export default function G2048() {
       }
 
       if (next && !next.every((row, i) => row.every((v, j) => v === board[i][j]))) {
-        setBoard(tile(next));
+        const b = tile(next);
+        setBoard(b);
+        
+        if (!canMove(b)) {
+          setTimeout(() => {
+            alert(`No moves left! Final Score: ${score}`);
+            reset();
+          }, 100);
+        }
       }
     };
 
