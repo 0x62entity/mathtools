@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 
 export default function CrappyBird() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [started, setStarted] = useState(false);
   const [score, setScore] = useState(0);
 
   useEffect(() => {
@@ -60,7 +59,6 @@ export default function CrappyBird() {
       if (e instanceof KeyboardEvent && e.code !== "Space") return;
       if (!start) {
         start = true;
-        setStarted(true);
       }
       bird.velocity = bird.jump;
     }
@@ -141,7 +139,6 @@ export default function CrappyBird() {
 
     function die() {
       start = false;
-      setStarted(false);
       bird.x = 80;
       bird.y = HEIGHT / 2;
       pipes = [];
