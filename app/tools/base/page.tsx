@@ -1,5 +1,6 @@
 "use client";
 
+import Header from "@/app/components/Header";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
@@ -22,12 +23,10 @@ export default function BasesPage() {
     }
     setTo(num.toString(toBase));
   }, [from, fromBase, toBase])
+  
   return (
     <div className="flex flex-col min-h-screen bg-zinc-50 font-sans dark:bg-black p-4">
-      <header className="flex flex-row justify-start items-center">
-        <Link href="/" className="m-2 font-semibold">MathTools</Link>
-        <h1 className="font-bold text-2xl m-2">Base Converter</h1>
-      </header>
+      <Header title="Base Converter"/>
       <div>
         <div className="flex flex-row w-full justify-between">
           <div>

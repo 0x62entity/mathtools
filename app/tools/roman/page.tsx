@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Header from "@/app/components/Header";
 
 export default function RomanPage() {
   const [input, setInput] = useState<string>("");
@@ -70,10 +71,7 @@ export default function RomanPage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-zinc-50 font-sans dark:bg-black p-4">
-      <header className="flex flex-row justify-start items-center">
-        <Link href="/" className="m-2 font-semibold">MathTools</Link>
-        <h1 className="font-bold text-2xl m-2">Roman Numeral Converter</h1>
-      </header>
+      <Header title="Roman Converter"/>
       <div>
         <div className="flex flex-col">
           <input className="bg-zinc-800 p-2 m-1 rounded-md" placeholder="From..." onChange={(e) => setInput(e.target.value)}/>

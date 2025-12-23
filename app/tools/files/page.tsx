@@ -1,4 +1,5 @@
 "use client";
+import Header from "@/app/components/Header";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -46,10 +47,7 @@ export default function FilesPage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-zinc-50 font-sans dark:bg-black p-4">
-      <header className="flex flex-row justify-start items-center">
-        <Link href="/" className="m-2 font-semibold">MathTools</Link>
-        <h1 className="font-bold text-2xl m-2">File Converter</h1>
-      </header>
+      <Header title="File Converter"/>
       <div>
         <div className="flex flex-col">
           <span>Note: Please use a Chromium based browser for best compatibility</span>

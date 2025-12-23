@@ -1,4 +1,5 @@
 "use client";
+import Header from "@/app/components/Header";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -61,10 +62,7 @@ export default function RegexPage() {
   
   return (
     <div className="flex flex-col min-h-screen bg-zinc-50 font-sans dark:bg-black p-4">
-      <header className="flex flex-row justify-start items-center">
-        <Link href="/" className="m-2 font-semibold">MathTools</Link>
-        <h1 className="font-bold text-2xl m-2">Text Converter</h1>
-      </header>
+      <Header title="Text Converter"/>
       <div>
         <div className="flex flex-col items-center">
           <textarea className="bg-zinc-900 p-2 m-1 w-[40%] sm:w-full h-48" placeholder="From..." onChange={(e) => setFrom(e.target.value)}/>

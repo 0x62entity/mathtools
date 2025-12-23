@@ -1,5 +1,6 @@
 "use client";
 
+import Header from "@/app/components/Header";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -10,10 +11,7 @@ export default function RandomPage() {
   
   return (
     <div className="flex flex-col min-h-screen bg-zinc-50 font-sans dark:bg-black p-4">
-      <header className="flex flex-row justify-start items-center">
-        <Link href="/" className="m-2 font-semibold">MathTools</Link>
-        <h1 className="font-bold text-2xl m-2">Random Generator</h1>
-      </header>
+      <Header title="Random Generator"/>
       <div>
         <div>
           <input type="number" placeholder="Minimum" onChange={(e) => setMin(Number.parseInt(e.target.value))} className="bg-zinc-900 p-2 m-1 rounded-md"/>

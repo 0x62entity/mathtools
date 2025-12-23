@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import * as math from "mathjs";
+import Header from "@/app/components/Header";
 
 export default function ConverterPage() {
   const [from, setFrom] = useState<number>(0);
@@ -32,10 +33,7 @@ export default function ConverterPage() {
   ]
   return (
     <div className="flex flex-col min-h-screen bg-zinc-50 font-sans dark:bg-black p-4">
-      <header className="flex flex-row justify-start items-center">
-        <Link href="/" className="m-2 font-semibold">MathTools</Link>
-        <h1 className="font-bold text-2xl m-2">Converter</h1>
-      </header>
+      <Header title="Unit Converter"/>
       <div>
         <div>
           <h3 className="text-lg font-semibold">Convert from</h3>
