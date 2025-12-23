@@ -25,6 +25,7 @@ export default function Home() {
         <ToolCard title="Roman Converter" desc="Converts Roman numerals" url="/tools/roman"/>
         <ToolCard title="Number Base Converter" desc="Convert numbers between bases" url="/tools/base"/>
         <ToolCard title="File Converter" desc="Convert files between formats" url="/tools/files"/>
+        <ToolCard title="Currency Converter" desc="Convert between currencies" url="/tools/currency"/>
       </div>
     </div>
   );
