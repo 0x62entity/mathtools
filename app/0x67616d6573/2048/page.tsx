@@ -48,6 +48,7 @@ export default function G2048() {
       [0, 0, 0, 0],
     ];
     setBoard(tile(tile(board)));
+    setScore(0);
   }
 
   function move(row: number[]) {
