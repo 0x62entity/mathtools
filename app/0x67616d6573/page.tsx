@@ -15,6 +15,7 @@ export default function Games() {
     "TicTacToe:Tic Tac Toe, or Naughts and Crosses",
     "Platformer:Yet another platformer i made for lack of anything better to do",
     "IdleMiningEmpire:Mine stuff",
+    "CookieClicker:Click cookies...what are you doing with your life"
   ];
 
   useEffect(() => {
