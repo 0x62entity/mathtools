@@ -157,6 +157,7 @@ export default function Minesweeper() {
   function flag(row: number, col: number, e: React.MouseEvent) {
     e.preventDefault();
     if (status !== "play" || board[row][col].revealed) return;
+    if ((mines - flags) <= 0) return;
 
     let ret = board.map(r => r.map(c => ({ ...c })));
     ret[row][col].flagged = !ret[row][col].flagged;
